@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa Interativo - Galeria</title>
+  <link rel="stylesheet" href="leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="map"></div>
+
+<div id="slideshowModal" class="slideshow-overlay">
+  <div class="slideshow-container">
+    <span id="closeBtn" class="close-btn">&times;</span>
+    <h2 id="slamTitle"></h2>
+
+    <div class="image-wrapper">
+      <img id="currentImage" src="" alt="Foto do Slam">
+      <a id="prevBtn" class="prev">&#10094;</a>
+      <a id="nextBtn" class="next">&#10095;</a>
+    </div>
+
+    <div id="imageCounter" class="image-counter"></div>
+  </div>
+</div>
+
+<script src="leaflet.js"></script>
+<script src="app.js" type="module"></script>
+</body>
+</html>

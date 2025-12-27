@@ -1,0 +1,178 @@
+/* Estilos Globais e do Mapa */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+#map {
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Overlay do Modal do Slideshow */
+.slideshow-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(8px);
+  display: none; /* Começa oculto */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.slideshow-overlay.active {
+  display: flex; /* Exibe o modal com a classe 'active' */
+}
+
+/* Container do Conteúdo do Slideshow */
+.slideshow-container {
+  position: relative;
+  background: #1a1a1a;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+
+#slamTitle {
+  color: #fff;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Wrapper da Imagem e Navegação */
+.image-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+}
+
+#currentImage {
+  max-width: 100%;
+  max-height: 70vh;
+  border-radius: 8px;
+  display: block;
+}
+
+/* Botões de Navegação (Anterior/Próximo) */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  transition: 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.4);
+  user-select: none;
+}
+
+.prev {
+  left: 0;
+  border-radius: 0 5px 5px 0;
+}
+
+.next {
+  right: 0;
+  border-radius: 5px 0 0 5px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Contador de Imagens */
+.image-counter {
+  color: #ccc;
+  font-size: 1rem;
+  margin-top: 15px;
+}
+
+/* Botão de Fechar do Slideshow */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #fff;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #bbb;
+}
+
+/* --- ESTILOS PARA O POP-UP CUSTOMIZADO (VISUAL NOVO) --- */
+
+/* Contêiner geral do pop-up do Leaflet */
+.leaflet-popup-content-wrapper {
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.leaflet-popup-content {
+  margin: 0;
+  padding: 0;
+  width: 300px !important;
+}
+
+/* Botão de fechar (X) padrão do Leaflet */
+.leaflet-popup-close-button {
+  padding: 8px 8px 0 0;
+  font-size: 20px;
+  color: #777;
+}
+
+/* Nosso conteúdo customizado dentro do pop-up */
+.custom-popup {
+  padding: 15px;
+  text-align: center;
+}
+
+.custom-popup .popup-title {
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.custom-popup .popup-line1, .custom-popup .popup-line2 {
+  margin: 0 auto 10px auto;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #555;
+  max-width: 90%; /* Evita que o texto encoste nas bordas */
+}
+
+.custom-popup .popup-line2 {
+  margin-bottom: 20px;
+}
+
+.custom-popup .popup-image {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  border: 1px solid #eee;
+}
+
+.custom-popup small {
+  display: block;
+  font-size: 0.8rem;
+  color: #999;
+}
