@@ -1,6 +1,6 @@
 // centro do mapa está definido para Pelotas.
 const map = L.map('map', {
-    minZoom: 13 // essa linha impede que o utilizador diminua o zoom para além deste nível
+    minZoom: 14 // essa linha impede que o utilizador diminua o zoom para além deste nível
 }).setView([-31.765, -52.341], 14);
 // 2. camada de mapa do OpenStreetMap, essa linha é responsável por carregar o mapa de verdade.
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
