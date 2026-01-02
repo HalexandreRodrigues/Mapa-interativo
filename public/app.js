@@ -1,17 +1,14 @@
-// 1. Inicializamos o mapa com coordenadas reais e um zoom inicial
-//    O centro do mapa está definido para Pelotas.
+// centro do mapa está definido para Pelotas.
 const map = L.map('map', {
-    minZoom: 13 // Esta linha impede que o utilizador diminua o zoom para além deste nível
+    minZoom: 13 // essa linha impede que o utilizador diminua o zoom para além deste nível
 }).setView([-31.765, -52.341], 14);
-// 2. Adicionamos a camada de mapa do OpenStreetMap
-//    Esta linha é responsável por carregar o mapa de verdade.
+// 2. camada de mapa do OpenStreetMap, essa linha é responsável por carregar o mapa de verdade.
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
 
-// 3. Definimos os limites da área do mapa (Bounding Box)
-//    O usuário não conseguirá arrastar o mapa para fora desta área.
+// 3. limites da área do mapa (Bounding Box) usuário não conseguirá arrastar o mapa para fora desta área
 const southWest = L.latLng(-31.81, -52.40);
 const northEast = L.latLng(-31.72, -52.28);
 const bounds = L.latLngBounds(southWest, northEast);
@@ -21,7 +18,7 @@ map.on('drag', function() {
 });
 
 
-// --- Elementos do DOM para o Slideshow (NÃO MUDA) ---
+// DOM para o Slideshow
 const slideshowModal = document.getElementById('slideshowModal');
 const slamTitle = document.getElementById('slamTitle');
 const closeBtn = document.getElementById('closeBtn');
@@ -30,11 +27,11 @@ const nextBtn = document.getElementById('nextBtn');
 const imageCounter = document.getElementById('imageCounter');
 const currentImage = document.getElementById('currentImage');
 
-// --- Estado do Slideshow (NÃO MUDA) ---
+// estado do Slideshow
 let currentImages = [];
 let currentIndex = 0;
 
-// --- Funções do Slideshow (NÃO MUDA) ---
+// funções do Slideshow
 function openSlideshowModal(slamName, images) {
   slamTitle.textContent = slamName;
   currentImages = images;
@@ -63,14 +60,13 @@ function showPrevImage() {
   showImage();
 }
 
-// --- Event Listeners para o Modal (NÃO MUDA) ---
+// --- Event Listeners para o Modal
 closeBtn.addEventListener('click', closeSlideshowModal);
 nextBtn.addEventListener('click', showNextImage);
 prevBtn.addEventListener('click', showPrevImage);
 
 
-// --- DADOS DOS LOCAIS (AGORA COM LATITUDE E LONGITUDE) ---
-// ATENÇÃO: VOCÊ PRECISA SUBSTITUIR ESTAS COORDENADAS PELAS COORDENADAS REAIS DOS SEUS PONTOS!
+// dados dos locais
 const locais = [
   {
     name: "Dunas",
@@ -123,11 +119,11 @@ const customIcon = L.icon({
   iconAnchor: [12, 12]
 });
 
-// --- Criação dos Marcadores (NÃO MUDA, SÓ FUNCIONA COM AS NOVAS COORDENADAS) ---
+// --- marcadores
 locais.forEach(local => {
     const marker = L.marker(local.coords, { icon: customIcon });
 
-    // Cria o conteúdo HTML para o pop-up usando as novas linhas
+    // conteúdo HTML para o pop-up usando as novas linhas
     const popupContent = `
       <div class="custom-popup">
         <h3 class="popup-title">${local.name}</h3>

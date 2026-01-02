@@ -135,12 +135,12 @@ body {
 
 /* Botão de fechar (X) padrão do Leaflet */
 .leaflet-popup-close-button {
-  padding: 8px 8px 0 0;
-  font-size: 20px;
+  padding: 5px 5px 0 0;
+  font-size: 15px;
   color: #777;
 }
 
-/* Nosso conteúdo customizado dentro do pop-up */
+/* conteúdo customizado dentro do pop-up */
 .custom-popup {
   padding: 15px;
   text-align: center;
@@ -179,4 +179,48 @@ body {
   display: block;
   font-size: 0.8rem;
   color: #999;
+}
+
+/* = marcador mapa = */
+
+.map-label-marker {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	transform: translateY(-8px);
+	pointer-events: auto;
+}
+
+/* texto acima do marcador */
+.map-label-marker .label {
+	background: transparent;
+	color: #000;
+	font-weight: 700;
+	font-size: 0.75rem;
+	letter-spacing: 1px;
+	margin-bottom: 6px;
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+
+/* icone do marcador */
+.map-label-marker .pin {
+	width: 18px;
+	height: 18px;
+	background: #000;
+	border-radius: 50% 50% 50% 0;
+	transform: rotate(-45deg);
+	position: relative;
+}
+
+/* centro do pin */
+.map-label-marker .pin::after {
+	content: "";
+	width: 8px;
+	height: 8px;
+	background: #fff;
+	border-radius: 50%;
+	position: absolute;
+	top: 5px;
+	left: 5px;
 }
