@@ -37,6 +37,7 @@
 .leaflet-safari .leaflet-tile-container {
 	width: 1600px;
 	height: 1600px;
+	transform-origin: 0 0;
 	-webkit-transform-origin: 0 0;
 	}
 .leaflet-marker-icon,
@@ -132,8 +133,10 @@
 .leaflet-control {
 	position: relative;
 	z-index: 800;
-	pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
-	pointer-events: auto;
+/* visiblePainted: fallback IE9–10 */
+pointer-events: visiblePainted;
+pointer-events: auto;
+
 	}
 .leaflet-top,
 .leaflet-bottom {
