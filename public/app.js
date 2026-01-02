@@ -60,6 +60,23 @@ function showPrevImage() {
   showImage();
 }
 
+function createLabelMarker(lat, lng, labelText) {
+	const icon = L.divIcon({
+		className: '',
+		html: `
+			<div class="map-label-marker">
+				<div class="label">${labelText}</div>
+				<div class="pin"></div>
+			</div>
+		`,
+		iconSize: [40, 40],
+		iconAnchor: [20, 40]
+	});
+
+	return L.marker([lat, lng], { icon });
+}
+
+
 // --- Event Listeners para o Modal
 closeBtn.addEventListener('click', closeSlideshowModal);
 nextBtn.addEventListener('click', showNextImage);
@@ -119,18 +136,18 @@ const customIcon = L.icon({
   iconAnchor: [12, 12]
 });
 
-// --- marcadores
+// pins
 locais.forEach(local => {
-    const marker = L.marker(local.coords, { icon: customIcon });
+    const marker = createLabelMarker(local.coords[0], local.coords[1], local.name);
 
-    // conteúdo HTML para o pop-up usando as novas linhas
+    // conteúdo HTML para o pop-up
     const popupContent = `
       <div class="custom-popup">
         <h3 class="popup-title">${local.name}</h3>
         <p class="popup-line1">${local.line1}</p>
         <p class="popup-line2">${local.line2}</p>
-        <img src="${local.images[0]}" alt="Foto de destaque de ${local.name}" class="popup-image">
-        <small>Clique na imagem para ver a galeria</small>
+        <img src="${local.images[0]}" alt="Foto de destaque de ${local.name}" class="popup-image" style="cursor:pointer; width:100%;">
+        <br><small>Clique na imagem para ver a galeria</small>
       </div>
     `;
 
