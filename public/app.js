@@ -140,14 +140,16 @@ const customIcon = L.icon({
 locais.forEach(local => {
     const marker = createLabelMarker(local.coords[0], local.coords[1], local.name);
 
-    // conteúdo HTML para o pop-up
+    // Novo HTML estruturado como "Card"
     const popupContent = `
       <div class="custom-popup">
-        <h3 class="popup-title">${local.name}</h3>
-        <p class="popup-line1">${local.line1}</p>
-        <p class="popup-line2">${local.line2}</p>
-        <img src="${local.images[0]}" alt="Foto de destaque de ${local.name}" class="popup-image" style="cursor:pointer; width:100%;">
-        <br><small>Clique na imagem para ver a galeria</small>
+        <img src="${local.images[0]}" alt="${local.name}" class="popup-image">
+        <div class="popup-text-content">
+          <h3 class="popup-title">${local.name}</h3>
+          <p class="popup-line1">${local.line1}</p>
+          <p class="popup-line2">${local.line2}</p>
+          <span class="popup-footer">➔ Clique na foto para ver a galeria</span>
+        </div>
       </div>
     `;
 
