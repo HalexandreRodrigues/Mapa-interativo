@@ -8,7 +8,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 
-// 3. limites da área do mapa (Bounding Box) usuário não conseguirá arrastar o mapa para fora desta área
+// limites da área do mapa
 const southWest = L.latLng(-31.81, -52.40);
 const northEast = L.latLng(-31.72, -52.28);
 const bounds = L.latLngBounds(southWest, northEast);
@@ -140,7 +140,6 @@ const customIcon = L.icon({
 locais.forEach(local => {
     const marker = createLabelMarker(local.coords[0], local.coords[1], local.name);
 
-    // Novo HTML estruturado como "Card"
     const popupContent = `
       <div class="custom-popup">
         <img src="${local.images[0]}" alt="${local.name}" class="popup-image">

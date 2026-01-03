@@ -25,15 +25,12 @@
 	        user-select: none;
 	  -webkit-user-drag: none;
 	}
-/* Prevents IE11 from highlighting tiles in blue */
 .leaflet-tile::selection {
 	background: transparent;
 }
-/* Safari renders non-retina tile on retina better with this, but Chrome is worse */
 .leaflet-safari .leaflet-tile {
 	image-rendering: -webkit-optimize-contrast;
 	}
-/* hack that prevents hw layers "stretching" when loading new tiles */
 .leaflet-safari .leaflet-tile-container {
 	width: 1600px;
 	height: 1600px;
@@ -44,8 +41,7 @@
 .leaflet-marker-shadow {
 	display: block;
 	}
-/* .leaflet-container svg: reset svg max-width decleration shipped in Joomla! (joomla.org) 3.x */
-/* .leaflet-container img: map is broken in FF if you have max-width: 100% on tiles */
+
 .leaflet-container .leaflet-overlay-pane svg {
 	max-width: none !important;
 	max-height: none !important;
@@ -62,7 +58,6 @@
 	}
 
 .leaflet-container img.leaflet-tile {
-	/* See: https://bugs.chromium.org/p/chromium/issues/detail?id=600120 */
 	mix-blend-mode: plus-lighter;
 }
 
@@ -72,7 +67,6 @@
 	}
 .leaflet-container.leaflet-touch-drag {
 	-ms-touch-action: pinch-zoom;
-	/* Fallback for FF which doesn't support pinch-zoom */
 	touch-action: none;
 	touch-action: pinch-zoom;
 }
@@ -100,7 +94,6 @@
 	     box-sizing: border-box;
 	z-index: 800;
 	}
-/* workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=888319 */
 .leaflet-overlay-pane svg {
 	-moz-user-select: none;
 	}
@@ -133,7 +126,6 @@
 .leaflet-control {
 	position: relative;
 	z-index: 800;
-/* visiblePainted: fallback IE9–10 */
 pointer-events: visiblePainted;
 pointer-events: auto;
 
@@ -177,7 +169,7 @@ pointer-events: auto;
 	}
 
 
-/* zoom and fade animations */
+/* zoom e animação de fade */
 
 .leaflet-fade-anim .leaflet-popup {
 	opacity: 0;
@@ -338,7 +330,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	border-bottom-right-radius: 2px;
 	}
 
-/* zoom control */
+/* controle de zoom */
 
 .leaflet-control-zoom-in,
 .leaflet-control-zoom-out {
@@ -656,7 +648,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
 /* Printing */
 
 @media print {
-	/* Prevent printers from removing background-images of controls. */
 	.leaflet-control {
 		-webkit-print-color-adjust: exact;
 		print-color-adjust: exact;
